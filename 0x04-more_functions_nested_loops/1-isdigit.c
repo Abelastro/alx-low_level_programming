@@ -11,5 +11,5 @@ if (x >= 48 && x <= 57)
 {
 return (1);
 }
-retrun (0);
+return (0);
 }
