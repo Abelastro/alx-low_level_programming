@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
  * main - prints minimum number of coins to make change for an amount of money.
  * @argc: number of arguments passed to the function
@@ -35,4 +36,4 @@ break;
 }
 printf("%d\n", n);
 return (0);
-}
+]
