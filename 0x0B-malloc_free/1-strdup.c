@@ -1,30 +1,39 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-
 /**
-  * _strdup - Duplicate a string
-  * @str: the string to duplicate
-  *
-  * Return: the string duplicated
-  */
+ * _stlen - function start here
+ *@s: string
+ *Return: number of char
+ */
+int _stlen(char *s)
+{
+int a = 0;
+while (s[a])
+a++;
+return (a);
+}
+/**
+* _strdup - function start here
+*@str: string
+*Return: char
+*/
 char *_strdup(char *str)
 {
-int a = 0, i = 1;
-char *s;
+unsigned int i;
+char *ptr;
 if (str == NULL)
 return (NULL);
-while (str[i])
-{
-i++;
-}
-s = malloc((sizeof(char) * i) + 1);
-if (s == NULL)
+ptr = (char *)malloc(_stlen(str) + 1);
+if (ptr == NULL)
 return (NULL);
-while (a < i)
+for (i = 0; str[i] != '\0'; i++)
 {
-s[a] = str[a];
-a++;
+ptr[i] = str[i];
 }
-s[a] = '\0';
-return (s);
+if (ptr[i] == '\0')
+{
+ptr[i + 1] = '\0';
+}
+return (ptr);
 }
