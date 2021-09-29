@@ -1,37 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+#include "function_pointers.h"
+/*
+*Intresting note: functions are a set of instruction and
+*function pointers are pointers to the begning of this instruction
+*so if we could get the first instrucions adress inmemory
+*we can see what it is doing by printing the adresses
+*/
 /**
- * main - prints its own opcodes
+ * main - print opcodes of its own main function
  * @argc: number of arguments
- * @argv: array of arguments
- *
- * Return: Always 0 (Success)
+ * @argv: vector of arguments
+ * Return: 0 if no errors
  */
 int main(int argc, char *argv[])
 {
-int bytes, i;
-char *arr;
+register int i, num;
+char *ptr = (char *)main;
 if (argc != 2)
-{
-printf("Error\n");
-exit(1);
-}
-bytes = atoi(argv[1]);
-if (bytes < 0)
-{
-printf("Error\n");
-exit(2);
-}
-arr = (char *)main;
-for (i = 0; i < bytes; i++)
-{
-if (i == bytes - 1)
-{
-printf("%02hhx\n", arr[i]);
-break;
-}
-printf("%02hhx ", arr[i]);
-}
+printf("Error\n"), exit(1);
+num = atoi(argv[1]);
+if (num < 0)
+printf("Error\n"), exit(2);
+for (i = 0; i < num - 1; i++)
+printf("%02hhx ", ptr[i]);
+printf("%02hhx\n", ptr[i]);
 return (0);
 }
